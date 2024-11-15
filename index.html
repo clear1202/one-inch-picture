@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一寸照片转换器</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>一寸照片转换器</h1>
+        <div class="upload-container" id="dropZone">
+            <input type="file" id="imageInput" accept="image/*">
+            <label for="imageInput" class="upload-button">
+                <div class="upload-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                        <path fill="none" d="M0 0h24v24H0z"/>
+                        <path d="M12 12.586l4.243 4.242-1.415 1.415L13 16.415V22h-2v-5.585l-1.828 1.828-1.415-1.415L12 12.586zM12 2a7.001 7.001 0 0 1 6.954 6.194 5.5 5.5 0 0 1-.953 10.784v-2.014a3.5 3.5 0 1 0-1.112-6.91 5 5 0 1 0-9.777 0 3.5 3.5 0 0 0-1.292 6.88l.18.03v2.014a5.5 5.5 0 0 1-.954-10.784A7 7 0 0 1 12 2z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <p>点击或拖拽图片到此处上传</p>
+                <p class="upload-hint">支持 JPG、PNG 格式</p>
+            </label>
+        </div>
+        
+        <div class="preview-container" id="previewContainer" style="display: none;">
+            <div class="preview-wrapper">
+                <div class="original-image">
+                    <h3>调整图片 <span class="subtitle">拖动和缩放以调整位置</span></h3>
+                    <div class="image-container">
+                        <img id="originalImage" src="" alt="原始图片预览">
+                    </div>
+                    <div class="crop-controls">
+                        <button id="rotateBtn" class="control-button">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M7.11 8.53L5.7 7.11C4.8 8.27 4.24 9.61 4.07 11h2.02c.14-.87.49-1.72 1.02-2.47zM6.09 13H4.07c.17 1.39.72 2.73 1.62 3.89l1.41-1.42c-.52-.75-.87-1.59-1.01-2.47zm1.01 5.32c1.16.9 2.51 1.44 3.9 1.61V17.9c-.87-.15-1.71-.49-2.46-1.03L7.1 18.32zM13 4.07V1L8.45 5.55 13 10V6.09c2.84.48 5 2.94 5 5.91s-2.16 5.43-5 5.91v2.02c3.95-.49 7-3.85 7-7.93s-3.05-7.44-7-7.93z"/>
+                            </svg>
+                        </button>
+                        <button id="zoomInBtn" class="control-button">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                            </svg>
+                        </button>
+                        <button id="zoomOutBtn" class="control-button">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M19 13H5v-2h14v2z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="converted-image">
+                    <h3>一寸照片预览 <span class="subtitle">(295x413像素)</span></h3>
+                    <div class="image-container">
+                        <img id="convertedImage" src="" alt="转换后的图片">
+                    </div>
+                    <button id="downloadBtn" class="download-button" disabled>下载照片</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
